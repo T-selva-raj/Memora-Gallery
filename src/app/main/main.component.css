@@ -1,0 +1,36 @@
+.landing-page {
+  width: 100%;
+  min-height: 100vh;
+  /* background-image: url("../../assets/bg.jpg"); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+.landing-page-content {
+  z-index: 2;
+  text-align: center;
+  color: white;
+  font-size: xx-large;
+  letter-spacing: 0.3em;
+}
+.landing-page-content h1 {
+  filter: drop-shadow(2px 2px 5px white);
+}
+.landing-page-content button{
+    width:200px;
+    height:40px;
+    outline: none;
+    font-size: 15px;
+    letter-spacing:inherit;
+    color: inherit;
+    background-color: transparent;
+    border: 2px solid white;
+    cursor: pointer;
+    box-shadow: 0 0 5px white;
+}
+.landing-page-content button:hover{
+        box-shadow: 0 0 5px white inset;
+        width: 210px;
+        transition: 1s;
+}
