@@ -55,4 +55,10 @@ label {
   cursor: pointer;
 }  */
 /* --------------------------------------- */
-
+.login-container{
+  width:400px;
+  height:300px;
+}
+form{
+  padding:20px;
+}

@@ -1,4 +1,4 @@
-<div [ngStyle]="{ position: 'sticky', top: '0' }">
+<!-- <div [ngStyle]="{ position: 'sticky', top: '0' }">
   <nav>
     <div class="left">
       <h1>Authorization</h1>
@@ -9,5 +9,18 @@
       <li><a routerLink="/register">Register</a></li>
     </ul>
   </nav>
-</div>
+</div> -->
 
+<mat-toolbar [ngStyle]="{ position: 'sticky', top: '0' }" color="primary" mat-elevation="10">
+  <div fxLayout="row" fxFill fxLayoutAlign="space-between center">
+    <span>
+      My First App
+    </span>
+    <div fxLayout="row" fxFlex="40" fxLayoutAlign="space-around center">
+      <a mat-button>Home</a>
+      <a mat-button>Gallery</a>
+      <a mat-button>Login</a>
+      <a mat-raised-button color="accent">Sign Up</a>
+    </div>
+  </div>
+</mat-toolbar>

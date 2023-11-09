@@ -8,7 +8,7 @@
     font-family: 'Poppins';
 }
 body{
-    background-image: url("./assets/bg.gif");
+    /* background-image: url("./assets/bg.gif"); */
     background-size: cover;
     background-repeat: no-repeat;
     object-fit: cover;
@@ -128,3 +128,6 @@ align-items: center;
   cursor: pointer;
   width:10px;
 } */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
