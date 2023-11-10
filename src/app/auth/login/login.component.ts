@@ -30,7 +30,10 @@ export class LoginComponent {
     if (this.password.hasError('required')) return 'Password Is Required';
     if (this.password.hasError('minLength')) return 'Password must contain 8 charecters';
     if (this.password.hasError('pattern')) return 'Password must contain at one lowercase,Upper case and a special charecter ';
-    
     return '';
+  }
+  clearForm() {
+    this.email.setValue('');
+    this.password.setValue('');
   }
 }
