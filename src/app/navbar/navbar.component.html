@@ -7,6 +7,7 @@
       <div fxLayout="row" fxFlex="40" fxLayoutAlign="space-around center" fxHide.lt-md>
         <a mat-button routerLink="/"><mat-icon>home</mat-icon>Home</a>
         <a mat-button><mat-icon>image</mat-icon>Gallery</a>
+        <a mat-button><mat-icon>account_circle</mat-icon>Profile</a>
         <a mat-button routerLink="/login">Login</a>
         <a mat-raised-button color="accent" routerLink="/register">Sign Up</a>
       </div>
@@ -34,6 +35,15 @@
             image
           </mat-icon>
           Gallery
+        </a>
+      </mat-sidenav-item>
+      <br />
+      <mat-sidenav-item mode="side" fxFill>
+        <a mat-button>
+          <mat-icon>
+            account_circle
+          </mat-icon>
+          Profile
         </a>
       </mat-sidenav-item>
       <br />

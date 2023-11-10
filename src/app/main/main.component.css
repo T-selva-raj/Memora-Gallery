@@ -1,36 +1,114 @@
-.landing-page {
-  width: 100%;
-  min-height: 100vh;
-  /* background-image: url("../../assets/bg.jpg"); */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: -1;
+.main-container{
+  max-width: 100%;
+  max-height: 100%;
 }
-.landing-page-content {
-  z-index: 2;
-  text-align: center;
-  color: white;
-  font-size: xx-large;
-  letter-spacing: 0.3em;
+
+/* svg animation */
+svg{
+  width: 80%;
+  height: 80%;
 }
-.landing-page-content h1 {
-  filter: drop-shadow(2px 2px 5px white);
+svg#freepik_stories-two-factor-authentication:not(.animated) .animable {
+  opacity: 0;
 }
-.landing-page-content button{
-    width:200px;
-    height:40px;
-    outline: none;
-    font-size: 15px;
-    letter-spacing:inherit;
-    color: inherit;
-    background-color: transparent;
-    border: 2px solid white;
-    cursor: pointer;
-    box-shadow: 0 0 5px white;
+
+svg#freepik_stories-two-factor-authentication.animated #freepik--Envelopes--inject-78 {
+  animation: 3s Infinite linear floating;
+  animation-delay: 0s;
 }
-.landing-page-content button:hover{
-        box-shadow: 0 0 5px white inset;
-        width: 210px;
-        transition: 1s;
+
+svg#freepik_stories-two-factor-authentication.animated #freepik--device-2--inject-78 {
+  animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) zoomOut;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-two-factor-authentication.animated #freepik--window-2--inject-78 {
+  animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) zoomIn;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-two-factor-authentication.animated #freepik--window-1--inject-78 {
+  animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) zoomOut;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-two-factor-authentication.animated #freepik--device-1--inject-78 {
+  animation: 1.5s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideDown;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-two-factor-authentication.animated #freepik--Plant--inject-78 {
+  animation: 1.5s Infinite linear wind;
+  animation-delay: 0s;
+}
+
+svg#freepik_stories-two-factor-authentication.animated #freepik--speech-bubble--inject-78 {
+  animation: 0.9s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) zoomOut;
+  animation-delay: 0s;
+}
+
+@keyframes floating {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wind {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(1deg);
+  }
+
+  75% {
+    transform: rotate(-1deg);
+  }
 }
