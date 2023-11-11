@@ -1,5 +1,5 @@
-<div fxFill>
-  <div fxLayout="column" fxLayoutAlign="center center" fxFill="100" >
+<div fxFill fxLayoutAlign="center center" >
+  <div  fxFlex="30" fxFlex.lt-md="80" >
     <div class="login-container">
       <mat-toolbar color="primary" fxLayout="column" fxLayoutAlign="center center">
         <span>Login</span>
@@ -13,16 +13,22 @@
           </mat-form-field>
           <mat-form-field>
             <mat-label>Password</mat-label>
-            <input matInput type="password" [formControl]="password" required/>
-            <mat-error class="error">{{checkPassword()}}</mat-error>
+            <input matInput type="password" [formControl]="password" required />
+              <mat-error class="error" *ngIf="password.hasError('required')">Password is Required!</mat-error>
+              <mat-error class="error" *ngIf="password.hasError('minlength')">Password must be at least 8 characters
+                long!</mat-error>
+              <mat-error class="error" *ngIf="password.hasError('pattern')">
+                Password must contain at least one lowercase, one uppercase, and one special character!
+              </mat-error>
           </mat-form-field>
-          <div fxFill fxLayoutAlign="space-around center" >
+          <div fxFill fxLayoutAlign="space-around center">
             <button color="primary" mat-raised-button>Login</button>
             <button color="primary" mat-raised-button (click)="clearForm()">Clear</button>
           </div>
-          <br>
-          <h5>Not a User ?<a mat-button color="primary">sign in</a>here</h5>
-          <h5><a mat-button color="primary">Forgot password?</a></h5>
+          <div fxFill="80" fxLayout="column wrap" fxLayoutGap="0" fxLayoutAlign="start start">
+            <h5>Not a User ?<a mat-button color="primary" (click)="navigate('register')"> sign Up</a>here</h5>
+            <h5><a mat-button color="primary">Forgot password?</a></h5>
+          </div>
         </form>
       </mat-card>
     </div>

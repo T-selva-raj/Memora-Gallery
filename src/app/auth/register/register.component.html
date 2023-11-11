@@ -1,22 +1,41 @@
-<div class="container">
-    <div class="inner">
-      <h1>Register</h1>
-      <form>
-        <div class="form-group">
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required />
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required />
-        </div>
-        <div class="form-group">
-          <button type="submit">Register</button>
-        </div>
-      </form>
+<div fxFill fxLayoutAlign="center center" >
+  <div fxFlex="35" fxFlex.lt-md="80" >
+    <div class="register-container">
+      <mat-toolbar color="primary" fxLayout="column" fxLayoutAlign="center center">
+        <span>Register</span>
+      </mat-toolbar>
+      <mat-card>
+        <form fxLayout="column" fxLayoutGap="3">
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput [formControl]="email" required />
+            <mat-error class="error">{{checkMail()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" [formControl]="password" required />
+              <mat-error class="error" *ngIf="password.hasError('required')">Password is Required !</mat-error>
+              <mat-error class="error" *ngIf="password.hasError('minlength')">Password must be at least 8 characters
+                long !</mat-error>
+              <mat-error class="error" *ngIf="password.hasError('pattern')">
+              Password must contain at least one lowercase, one uppercase, and one special character !
+              </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Repeat Password</mat-label>
+            <input matInput type="password" [formControl]="RePassword"  />
+              <mat-error class="error" *ngIf="RePassword.hasError('required')"> Re-enter the Password !</mat-error>
+          </mat-form-field>
+              <small *ngIf="password.value!=RePassword.value">Password Mismatch !</small>
+          <div fxFill fxLayoutAlign="space-around center">
+            <button color="primary" mat-raised-button>Register</button>
+            <button color="primary" mat-raised-button  (click)="clearForm()">Clear</button>
+          </div>
+          <div fxFill="80" fxLayout="column wrap" fxLayoutGap="0" fxLayoutAlign="start start">
+            <h5>Already a User ?<a mat-button color="primary" >Log in</a>here</h5>
+          </div>
+        </form>
+      </mat-card>
     </div>
   </div>
+</div>

@@ -4,7 +4,7 @@ import { ServicesService } from '../services.service';
 // import { loginData } from '../login';
 
 import { FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatInput } from '@angular/material/input';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,15 +25,11 @@ export class LoginComponent {
     if (this.email.hasError('required')) return 'Email Is Required';
     return this.email.hasError('email') ? 'Not a valid email' : ''; 
   }
-  checkPassword() {
-    console.log(this.password.value);
-    if (this.password.hasError('required')) return 'Password Is Required';
-    if (this.password.hasError('minLength')) return 'Password must contain 8 charecters';
-    if (this.password.hasError('pattern')) return 'Password must contain at one lowercase,Upper case and a special charecter ';
-    return '';
-  }
   clearForm() {
     this.email.setValue('');
     this.password.setValue('');
+  }
+  navigate(dest:string) {
+    this.router.navigate([`${dest}`]);
   }
 }
