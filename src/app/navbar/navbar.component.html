@@ -1,4 +1,4 @@
-<div [ngStyle]="{ position: 'sticky', top: '0' }">
+<div [ngStyle]="{ position: 'sticky', top: '0' ,'z-index':'1000'}">
   <mat-toolbar color="primary">
     <div fxLayout="row" fxFill fxLayoutAlign="space-between center">
       <span>
@@ -9,6 +9,7 @@
         <a mat-button routerLink="/gallery"><mat-icon>image</mat-icon>Gallery</a>
         <a mat-button><mat-icon>account_circle</mat-icon>Profile</a>
         <a mat-button routerLink="/login">Login</a>
+        <a mat-button routerLink="/logout">Logout</a>
         <a mat-raised-button color="accent" routerLink="/register">Sign Up</a>
       </div>
       <div fxHide.gt-sm>
@@ -50,6 +51,12 @@
       <mat-sidenav-item mode="side" fxFill>
         <a mat-button routerLink="/login">
           Login
+        </a>
+      </mat-sidenav-item>
+      <br />
+      <mat-sidenav-item mode="side" fxFill>
+        <a mat-button routerLink="/logout">
+          Logout
         </a>
       </mat-sidenav-item>
       <br />

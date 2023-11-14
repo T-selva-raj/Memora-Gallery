@@ -1,0 +1,3 @@
+.cards-container::-webkit-scrollbar {
+            display: none;
+        }
