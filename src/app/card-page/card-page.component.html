@@ -1,5 +1,6 @@
 <div style="width: 100%;height: 100%;">
     <app-navbar></app-navbar>
+    <br>
     <div fxFill fxLayout="row wrap" style="overflow-y: scroll;" class="cards-container">
         <div *ngFor="let i of details" fxFlex="calc(25% - 16px)" fxFlex.md="calc(50% - 16px)" fxFlex.lt-md="calc(100% - 16px)" style="margin: 4px;">
             <app-common-card [name]="i.name" [mainImage]="i.mainImage"></app-common-card>

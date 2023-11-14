@@ -6,7 +6,7 @@
       </mat-toolbar>
       <mat-card>
         <form fxLayout="column" fxLayoutGap="3">
-          <mat-form-field>
+          <mat-form-field >
             <mat-label>Email</mat-label>
             <input matInput [formControl]="email" required />
             <mat-error class="error">{{checkMail()}}</mat-error>
@@ -21,6 +21,7 @@
                 Password must contain at least one lowercase, one uppercase, and one special character!
               </mat-error>
           </mat-form-field>
+          <br>
           <div fxFill fxLayoutAlign="space-around center">
             <button color="primary" mat-raised-button>Login</button>
             <button color="primary" mat-raised-button (click)="clearForm()">Clear</button>
