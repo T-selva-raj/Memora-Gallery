@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Authorization-Application": {
+    "Authorization-App": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Authorization-Application",
+            "outputPath": "dist/Authorization-App",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Authorization-Application:build:production"
+              "browserTarget": "Authorization-App:build:production"
             },
             "development": {
-              "browserTarget": "Authorization-Application:build:development"
+              "browserTarget": "Authorization-App:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Authorization-Application:build"
+            "browserTarget": "Authorization-App:build"
           }
         },
         "test": {

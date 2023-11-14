@@ -6,9 +6,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./common-card.component.css']
 })
 export class CommonCardComponent {
-  @Input() userName!: string;
-  @Input() email !: string;
+  @Input() avathar!: string;
+  @Input() mainImage !: string;
+  @Input () name!: string;
   
-  constructor(){}
+  constructor() {
+  }
   
 }

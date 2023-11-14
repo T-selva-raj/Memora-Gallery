@@ -6,7 +6,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AuthModule } from './auth/auth.module';
 import { MainComponent } from './main/main.component';
 import { CommonModuleModule } from './common-module/common-module.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardPageComponent } from './card-page/card-page.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
@@ -18,12 +18,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     MainComponent,
     CardPageComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
-    MatDividerModule
+    MatDividerModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
