@@ -1,13 +1,69 @@
-<div [ngStyle]="{ position: 'sticky', top: '0' }">
-  <nav>
-    <div class="left">
-      <h1>Authorization</h1>
+<div [ngStyle]="{ position: 'sticky', top: '0' ,'z-index':'1000'}">
+  <mat-toolbar color="primary">
+    <div fxLayout="row" fxFill fxLayoutAlign="space-between center">
+      <span>
+        Memora
+      </span>
+      <div fxLayout="row" fxFlex="40" fxLayoutAlign="space-around center" fxHide.lt-md>
+        <a mat-button routerLink="/"><mat-icon>home</mat-icon>Home</a>
+        <a mat-button routerLink="/gallery"><mat-icon>image</mat-icon>Gallery</a>
+        <a mat-button routerLink="/profile"><mat-icon>account_circle</mat-icon>Profile</a>
+        <a mat-button routerLink="/login">Login</a>
+        <a mat-button routerLink="/logout">Logout</a>
+        <a mat-raised-button color="accent" routerLink="/register">Sign Up</a>
+      </div>
+      <div fxHide.gt-sm>
+        <button mat-mini-fab color="accent" aria-label="Example icon button with a menu icon" (click)="toggleMenu()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
     </div>
-    <ul class="right">
-      <li><a routerLink="/">Home</a></li>
-      <li><a routerLink="/login">Login</a></li>
-      <li><a routerLink="/register">Register</a></li>
-    </ul>
-  </nav>
+  </mat-toolbar>
+  <div [style.display]="isOpen ? 'block' : 'none'">
+    <mat-sidenav-container fxLayout="column" fxlayoutAlign="">
+      <mat-sidenav-item fxFill mode="side">
+          <a mat-button routerLink="/">
+            <mat-icon>
+              home
+            </mat-icon>
+            Home
+          </a>
+      </mat-sidenav-item>
+      <br />
+      <mat-sidenav-item mode="side" fxFill>
+        <a mat-button routerLink="/gallery">
+          <mat-icon>
+            image
+          </mat-icon>
+          Gallery
+        </a>
+      </mat-sidenav-item>
+      <br />
+      <mat-sidenav-item mode="side" fxFill>
+        <a mat-button routerLink="/profile">
+          <mat-icon>
+            account_circle
+          </mat-icon>
+          Profile
+        </a>
+      </mat-sidenav-item>
+      <br />
+      <mat-sidenav-item mode="side" fxFill>
+        <a mat-button routerLink="/login">
+          Login
+        </a>
+      </mat-sidenav-item>
+      <br />
+      <mat-sidenav-item mode="side" fxFill>
+        <a mat-button routerLink="/logout">
+          Logout
+        </a>
+      </mat-sidenav-item>
+      <br />
+      <mat-sidenav-item mode="side" fxFill>
+        <a mat-button color="accent" routerLink="/register">
+          Sign Up</a>
+      </mat-sidenav-item>
+    </mat-sidenav-container>
+  </div>
 </div>
-

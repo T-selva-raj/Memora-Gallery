@@ -1,21 +1,37 @@
-<div class="container">
-  <div class="inner">
-    <h1>Log In</h1>
-    <form #loginForm="ngForm">
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" [(ngModel)]="loginData.value.email"  required />
-      </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type={{type}} id="password" name="password" [(ngModel)]="loginData.value.password" required />
-       
-      </div>
-      <input type="checkbox" (click)="showPassowrd()" class="eye"  style="width: 10px;height: 10px;"/>&nbsp;&nbsp;<span style="font-size: 10px;">Show password.</span><br>
-      <div class="form-group button-group flex">
-        <button type="submit" (click)="navigate()">Login</button>
-        <button (click)="clearForm()" >Clear</button>
-      </div>
-    </form>
+<div fxFill fxLayoutAlign="center center" >
+  <div  fxFlex="30" fxFlex.lt-md="80" >
+    <div class="login-container">
+      <mat-toolbar color="primary" fxLayout="column" fxLayoutAlign="center center">
+        <span>Login</span>
+      </mat-toolbar>
+      <mat-card>
+        <form fxLayout="column" fxLayoutGap="3">
+          <mat-form-field >
+            <mat-label>Email</mat-label>
+            <input matInput [formControl]="email" required />
+            <mat-error class="error">{{checkMail()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" [formControl]="password" required />
+              <mat-error class="error" *ngIf="password.hasError('required')">Password is Required!</mat-error>
+              <mat-error class="error" *ngIf="password.hasError('minlength')">Password must be at least 8 characters
+                long!</mat-error>
+              <mat-error class="error" *ngIf="password.hasError('pattern')">
+                Password must contain at least one lowercase, one uppercase, and one special character!
+              </mat-error>
+          </mat-form-field>
+          <br>
+          <div fxFill fxLayoutAlign="space-around center">
+            <button color="primary" mat-raised-button>Login</button>
+            <button color="primary" mat-raised-button (click)="clearForm()">Clear</button>
+          </div>
+          <div fxFill="80" fxLayout="column wrap" fxLayoutGap="0" fxLayoutAlign="start start">
+            <h5>Not a User ?<a mat-button color="primary" (click)="navigate('register')"> sign Up</a>here</h5>
+            <h5><a mat-button color="primary">Forgot password?</a></h5>
+          </div>
+        </form>
+      </mat-card>
+    </div>
   </div>
 </div>

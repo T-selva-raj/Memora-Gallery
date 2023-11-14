@@ -2,50 +2,34 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServicesService } from '../services.service';
 // import { loginData } from '../login';
-import { FormControl,FormGroup } from '@angular/forms';
+
+import { FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.css'],  
 })
   
   
 export class LoginComponent {
   constructor(private router: Router, private service: ServicesService) { }
-  type = "password";
-  // email !:string;
-  // password!: string;
-  // loginData = new loginData("sel@mailinator.com","Admin@12345");
-  loginData = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl('')
-  });
+  email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [
+    Validators.required,
+    Validators.minLength(8),
+    Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])/)
+  ]);
 
-  onchange(event: any) {
-    console.log(event.value);
-
-  }
- navigate() {
-  const password = this.loginData.value.password ?? ''; 
-  const email = this.loginData.value.email ?? '';
-
-  const validationErrors = this.service.validdateCredentials(password, email);
-
-  if (validationErrors.email === "" && validationErrors.password.length==0) {
-    this.router.navigate(['/card']);
-  } else  {
-    window.alert(validationErrors.email); 
-  }
-}
-
-
-  showPassowrd() {
-    if (this.type == "password") this.type = "text";
-    else this.type = "password";
+  checkMail() {
+    if (this.email.hasError('required')) return 'Email Is Required';
+    return this.email.hasError('email') ? 'Not a valid email' : ''; 
   }
   clearForm() {
-    // this.email = "";
-    // this.password = "";
+    this.email.setValue('');
+    this.password.setValue('');
   }
-
+  navigate(dest:string) {
+    this.router.navigate([`${dest}`]);
+  }
 }
