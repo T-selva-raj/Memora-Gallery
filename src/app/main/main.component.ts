@@ -27,6 +27,9 @@ export class MainComponent {
       case 'gitHub':
         window.open(social.gitHub, '_blank');
         break;
+      case 'skype':
+        window.open(social.skype, '_blank');
+        break;
     }
   }
 
