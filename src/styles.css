@@ -129,6 +129,10 @@ mat-form-field.mat-form-field-appearance-fill {
     .heading-2 {
       font-size: 1rem !important;
     }
+    .icons{
+      width: 100px;
+      height: 100px;;
+    }
 }
 
 

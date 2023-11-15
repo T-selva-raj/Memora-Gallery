@@ -19,10 +19,10 @@
       </div>
     </div>
   </mat-toolbar>
-  <div  *ngIf="isOpen" style="background-color: red;">
-    <mat-sidenav-container fxLayout="column" fxlayoutAlign="" fxFill>
+  <div  *ngIf="isOpen">
+    <mat-sidenav-container fxLayout="column" fxLayoutAlign="space-between stretch" fxFlex="100%">
       <mat-sidenav-item fxFill mode="side">
-          <a mat-button routerLink="/" fxFlex="100">
+          <a mat-button routerLink="/" >
             <mat-icon>
               home
             </mat-icon>
@@ -30,7 +30,7 @@
           </a>
       </mat-sidenav-item>
       <br />
-      <mat-sidenav-item mode="side" fxFlex="100">
+      <mat-sidenav-item mode="side" fxFill>
         <a mat-button routerLink="/gallery">
           <mat-icon>
             image
@@ -39,7 +39,7 @@
         </a>
       </mat-sidenav-item>
       <br />
-      <mat-sidenav-item mode="side" fxFlex="100">
+      <mat-sidenav-item mode="side" fxFill>
         <a mat-button routerLink="/profile">
           <mat-icon>
             account_circle
@@ -48,19 +48,19 @@
         </a>
       </mat-sidenav-item>
       <br />
-      <mat-sidenav-item mode="side" fxFlex="100">
+      <mat-sidenav-item mode="side" fxFill>
         <a mat-button routerLink="/login">
           Login
         </a>
       </mat-sidenav-item>
       <br />
-      <mat-sidenav-item mode="side" fxFlex="100">
+      <mat-sidenav-item mode="side" fxFill>
         <a mat-button routerLink="/logout">
           Logout
         </a>
       </mat-sidenav-item>
       <br />
-      <mat-sidenav-item mode="side" fxFlex="100">
+      <mat-sidenav-item mode="side" fxFill>
         <a mat-button color="accent" routerLink="/register">
           Sign Up</a>
       </mat-sidenav-item>
