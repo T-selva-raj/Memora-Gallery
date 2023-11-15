@@ -19,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { ProfileComponent } from './profile/profile.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { ProfileComponent } from './profile/profile.component';
     MainComponent,
     CardPageComponent,
     ProfileComponent,
+
   ],
   imports: [
     BrowserModule,
