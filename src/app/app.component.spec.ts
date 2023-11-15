@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'routing-practice'`, () => {
+  it(`should have as title 'Memora-Gallery'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('routing-practice');
+    expect(app.title).toEqual('Memora-Gallery');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('routing-practice app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('Memora-Gallery app is running!');
   });
 });
