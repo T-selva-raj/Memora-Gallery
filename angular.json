@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Authorization-App": {
+    "Memora-Gallery": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Authorization-App",
+            "outputPath": "dist/Memora-Gallery",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Authorization-App:build:production"
+              "browserTarget": "Memora-Gallery:build:production"
             },
             "development": {
-              "browserTarget": "Authorization-App:build:development"
+              "browserTarget": "Memora-Gallery:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Authorization-App:build"
+            "browserTarget": "Memora-Gallery:build"
           }
         },
         "test": {
