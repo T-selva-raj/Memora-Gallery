@@ -7,7 +7,7 @@
       </mat-toolbar>
       <mat-card>
         <form fxLayout="column" fxLayoutGap="3" [formGroup]="signUpForm" (ngSubmit)="OnFormSubmit(signUpForm.value)">
-          <h6 style="text-align: center;">{{error_message}}</h6>
+          <h5 style="text-align: center;color: red;">{{error_message}}</h5>
           <mat-form-field>
             <mat-label>User Name</mat-label>
             <input matInput formControlName="userName" required />
