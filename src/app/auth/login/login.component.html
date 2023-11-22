@@ -1,5 +1,5 @@
+<app-loader *ngIf="isLoader"></app-loader>
 <div fxFill fxLayoutAlign="center center" >
-  <app-loader *ngIf="isLoader"></app-loader>
   <div  fxFlex="30" fxFlex.lt-md="80" >
     <div class="login-container">
       <mat-toolbar color="primary" fxLayout="column" fxLayoutAlign="center center">
@@ -7,6 +7,7 @@
       </mat-toolbar>
       <mat-card>
         <form fxLayout="column" fxLayoutGap="3" [formGroup]="signInForm" (ngSubmit)="onFormSubmit(signInForm.value)">
+          <h5  style="text-align: center;color: red;">{{error_message}}</h5>
           <mat-form-field >
             <mat-label>Email</mat-label>
             <input matInput formControlName="email" required />

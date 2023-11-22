@@ -31,6 +31,10 @@ export class RegisterComponent implements OnInit {
   navigate(dest: string) {
     this.router.navigate([`${dest}`]);
   }
+  /**
+   * Function is used to validathe the password
+   * @returns 
+   */
   checkPassword() {
     const passwordControl = this.signUpForm.get('password');
     if (passwordControl?.hasError('required')) return 'Password is required';
@@ -38,14 +42,25 @@ export class RegisterComponent implements OnInit {
     if (passwordControl?.hasError('pattern')) return 'Password must contain at least one lowercase, one uppercase, and one special character';
     return '';
   }
+
+  /**
+   * function is used to sigup
+   * @param data 
+   */
   OnFormSubmit(data: any) {
-    this.isLoader = !this.isLoader;
     if (this.signUpForm.valid) {
+      this.isLoader = !this.isLoader;
       this.auth.SignUpUser(data).subscribe({
-        next: (res) => {
+        next: (res:any) => {
           this.isLoader = !this.isLoader;
+          if (res && res.status && res.status == 200) {
+            this.router.navigate(['/login']);
+          }
+          if (res && res.status && res.status == 422) {
+            this.error_message = res?.message?.reason;
+          }
+          else this.error_message = "Somthing went Wrong !";
           this.signUpForm.reset();
-          this.router.navigate(['/login']);
         },
         error: (error) => {
           this.isLoader = !this.isLoader;
@@ -55,3 +70,5 @@ export class RegisterComponent implements OnInit {
     }
   }  
 }
+
+        

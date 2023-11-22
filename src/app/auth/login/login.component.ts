@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { AuthServiceService } from '../auth-service.service';
+import { SignInUser } from '../auth-interfaces';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ import { AuthServiceService } from '../auth-service.service';
 export class LoginComponent {
   isToggled = false;
   isLoader = false;
-  
+  error_message = '';
+
   constructor(private router: Router, private auth: AuthServiceService) { }
   
   signInForm = new FormGroup({
@@ -29,7 +31,10 @@ export class LoginComponent {
   navigate(dest: string) {
     this.router.navigate([`${dest}`]);
   }
-
+/**
+ * Function which is used to validate the password
+ * @returns 
+ */
   checkPassword() {
     const passwordControl = this.signInForm.get('password');
     if (passwordControl?.hasError('required')) return 'Password is required';
@@ -37,18 +42,29 @@ export class LoginComponent {
     if (passwordControl?.hasError('pattern')) return 'Password must contain at least one lowercase, one uppercase, and one special character';
     return '';
   }
-  
+  /**
+   * Finction which is used to SignIn
+   * @param formData 
+   */
   onFormSubmit(formData: object) {
-    this.isLoader = !this.isLoader;
     if (this.signInForm.valid) {
+      this.isLoader = !this.isLoader;
       this.auth.SignInUser(formData).subscribe({
-        next: (res) => {
-          console.log(res);
+        next: (res:any) => {
           this.isLoader = !this.isLoader;
-          this.router.navigate(['gallery']);
+          if (res && res.status&&res.status==200) {
+            this.router.navigate(['gallery']);
+          }
+          if (res && res.status && res.status == 422) {
+            this.error_message = res?.message?.reason;
+            this.signInForm.reset();
+          }
+          else this.error_message = "Somthing went Wrong !";
         },
         error: (error) => {
           console.log(error);
+          this.isLoader = !this.isLoader;
+          this.error_message = "An error occurred during signup.Please try again later.";
         }
       });
     }
