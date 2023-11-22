@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, Validators, FormGroup,FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, Validators,FormGroup } from '@angular/forms';
+import { AuthServiceService } from '../auth-service.service';
 
 @Component({
   selector: 'app-register',
@@ -8,31 +9,49 @@ import { FormControl, Validators, FormGroup,FormsModule, ReactiveFormsModule } f
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  constructor(private router: Router) { }
-  // registerForm=new FormGroup({
-    
-  // })
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [
-    Validators.required,
-    Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])/),
-    Validators.minLength(8),
-  ]);
-  RePassword = new FormControl('', [Validators.required]);
+  error_message = '';
+  isToggled = false;
+  isLoader = false;
+  constructor(private router: Router, private auth: AuthServiceService) { }
+  signUpForm = new FormGroup({
+    userName: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])/),
+      Validators.minLength(8),
+    ]),
+    RePassword: new FormControl('', [Validators.required])
+  });
+  
+
   ngOnInit() {
    
   }
-  checkMail() {
-    if (this.email.hasError('required')) return 'Email Is Required';
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+  navigate(dest: string) {
+    this.router.navigate([`${dest}`]);
   }
-  clearForm() {
-    this.email.reset();
-    this.password.reset();
-    this.RePassword.reset();
+  checkPassword() {
+    const passwordControl = this.signUpForm.get('password');
+    if (passwordControl?.hasError('required')) return 'Password is required';
+    if (passwordControl?.hasError('minlength')) return 'Password must be at least 8 characters long';
+    if (passwordControl?.hasError('pattern')) return 'Password must contain at least one lowercase, one uppercase, and one special character';
+    return '';
   }
-   navigate() {
-    this.router.navigate(['']);
-   }
-  
+  OnFormSubmit(data: any) {
+    this.isLoader = !this.isLoader;
+    if (this.signUpForm.valid) {
+      this.auth.SignUpUser(data).subscribe({
+        next: (res) => {
+          this.isLoader = !this.isLoader;
+          this.signUpForm.reset();
+          this.router.navigate(['/login']);
+        },
+        error: (error) => {
+          this.isLoader = !this.isLoader;
+          this.error_message = "An error occurred during signup. Please try again later.";
+        }
+      });
+    }
+  }  
 }
