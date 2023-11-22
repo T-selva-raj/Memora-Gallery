@@ -19,14 +19,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { ProfileComponent } from './profile/profile.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     MainComponent,
     CardPageComponent,
-    ProfileComponent,
+    ProfileComponent
 
   ],
   imports: [
@@ -45,7 +45,8 @@ import { ProfileComponent } from './profile/profile.component';
     MatIconModule,
     MatSidenavModule,
     MatDividerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
