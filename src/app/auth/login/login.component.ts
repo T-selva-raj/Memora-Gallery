@@ -52,7 +52,8 @@ export class LoginComponent {
       this.auth.SignInUser(formData).subscribe({
         next: (res:any) => {
           this.isLoader = !this.isLoader;
-          if (res && res.status&&res.status==200) {
+          if (res && res.status && res.status == 200) {
+            localStorage.setItem('jwt_token', res?.response?.JWT_Token);
             this.router.navigate(['gallery']);
           }
           if (res && res.status && res.status == 422) {
