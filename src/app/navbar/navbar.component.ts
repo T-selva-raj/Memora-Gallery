@@ -11,9 +11,14 @@ export class NavbarComponent implements OnInit {
   isOpen = false;
   
   ngOnInit(): void {
+    this.isOpen = false;
   }
   
   toggleMenu() {
     this.isOpen = !this.isOpen;
+  }
+
+  logOut() {
+    localStorage.removeItem('jwt_token');
   }
 }

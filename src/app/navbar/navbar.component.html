@@ -9,7 +9,7 @@
         <a mat-button routerLink="/gallery"><mat-icon>image</mat-icon>Gallery</a>
         <a mat-button routerLink="/profile"><mat-icon>account_circle</mat-icon>Profile</a>
         <a mat-button routerLink="/login">Login</a>
-        <a mat-button routerLink="/logout">Logout</a>
+        <a mat-button routerLink="/logout" (click)="logOut()">Logout</a>
         <a mat-raised-button color="accent" routerLink="/register">Sign Up</a>
       </div>
       <div fxHide.gt-sm>
@@ -19,51 +19,30 @@
       </div>
     </div>
   </mat-toolbar>
-  <div  *ngIf="isOpen">
+  <div *ngIf="isOpen">
     <mat-sidenav-container fxLayout="column" fxLayoutAlign="space-between stretch" fxFlex="100%">
-      <mat-sidenav-item fxFill mode="side">
-          <a mat-button routerLink="/" >
-            <mat-icon>
-              home
-            </mat-icon>
-            Home
-          </a>
-      </mat-sidenav-item>
-      <br />
-      <mat-sidenav-item mode="side" fxFill>
-        <a mat-button routerLink="/gallery">
-          <mat-icon>
-            image
-          </mat-icon>
-          Gallery
-        </a>
-      </mat-sidenav-item>
-      <br />
-      <mat-sidenav-item mode="side" fxFill>
-        <a mat-button routerLink="/profile">
-          <mat-icon>
-            account_circle
-          </mat-icon>
-          Profile
-        </a>
-      </mat-sidenav-item>
-      <br />
-      <mat-sidenav-item mode="side" fxFill>
-        <a mat-button routerLink="/login">
-          Login
-        </a>
-      </mat-sidenav-item>
-      <br />
-      <mat-sidenav-item mode="side" fxFill>
-        <a mat-button routerLink="/logout">
-          Logout
-        </a>
-      </mat-sidenav-item>
-      <br />
-      <mat-sidenav-item mode="side" fxFill>
-        <a mat-button color="accent" routerLink="/register">
-          Sign Up</a>
-      </mat-sidenav-item>
+      <mat-list fxFill>
+        <mat-list-item routerLink="/" >
+          <!-- <mat-icon>home</mat-icon> -->
+          <span>Home</span>
+        </mat-list-item>
+        <mat-list-item routerLink="/gallery">
+          <!-- <mat-icon>image</mat-icon> -->
+          <span>Gallery</span>
+        </mat-list-item>
+        <mat-list-item routerLink="/profile">
+          <!-- <mat-icon>account_circle</mat-icon> -->
+          <span>Profile</span>
+        </mat-list-item>
+        <mat-list-item routerLink="/login">
+          <span>Login</span>
+        </mat-list-item>
+        <mat-list-item routerLink="/logout" (click)="logOut()">
+          <span>Logout</span>
+        </mat-list-item>
+        <mat-list-item routerLink="/register">
+          <span>Sign Up</span>
+        </mat-list-item>
+      </mat-list>
     </mat-sidenav-container>
   </div>
-</div>
