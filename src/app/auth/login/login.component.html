@@ -12,8 +12,8 @@
             <mat-label>Email</mat-label>
             <input matInput formControlName="email" required />
             <mat-error class="error">{{
-            this.signInForm?.get('email')?.hasError('required')?'Email Is Required':
-            this.signInForm?.get('email')?.hasError('email') ? 'Not a valid email' : ''
+            this.signInForm!.get('email')!.hasError('required')?'Email Is Required':
+            this.signInForm!.get('email')!.hasError('email') ? 'Not a valid email' : ''
             }}</mat-error>
           </mat-form-field>
           <mat-form-field>

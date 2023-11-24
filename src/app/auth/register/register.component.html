@@ -17,9 +17,7 @@
           <mat-form-field>
             <mat-label>Email</mat-label>
             <input matInput formControlName="email" required />
-            <mat-error class="error"><mat-error class="error">{{ signUpForm?.get('email')?.hasError('required') ? 'Email
-                is required' :signUpForm?.get('email')?.hasError('email') ? 'Not a valid email' : ''
-                }}</mat-error></mat-error>
+            <mat-error class="error"><mat-error class="error">{{ signUpForm!.get('email')!.hasError('required') ? 'Email is required' :signUpForm!.get('email')!.hasError('email') ? 'Not a valid email' : ''}}</mat-error></mat-error>
           </mat-form-field>
           <mat-form-field>
             <mat-label>Password</mat-label>
@@ -34,13 +32,11 @@
             <mat-label>Repeat Password</mat-label>
             <input matInput [type]="!isToggled? 'password':'text'" formControlName="RePassword" />
             <mat-error class="error">
-              {{ signUpForm?.get('RePassword')?.hasError('required') ? 'RePassword
-              is required' :''}}
+              {{ signUpForm!.get('RePassword')!.hasError('required') ? 'RePassword is required' :''}}
             </mat-error>
           </mat-form-field>
           <small class="error"
-            *ngIf="!signUpForm?.get('RePassword')?.hasError('required')">{{signUpForm?.get('RePassword')?.value !==
-            signUpForm?.get('password')?.value?'Password mismatch !':''}}</small>
+            *ngIf="!signUpForm?.get('RePassword')?.hasError('required')">{{signUpForm!.get('RePassword')!.value !== signUpForm!.get('password')!.value?'Password mismatch !':''}}</small>
           <div fxFill fxLayoutAlign="space-around center">
             <button color="primary" mat-raised-button type="submit">Register</button>
             <button color="primary" mat-raised-button (click)="signUpForm.reset();">Clear</button>
