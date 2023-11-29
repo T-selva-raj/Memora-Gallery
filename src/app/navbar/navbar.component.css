@@ -1,0 +1,7 @@
+/* styles.css or your styles file */
+mat-tab-link[ng-reflect-active] {
+    background-color: #007bff;
+    /* Set your desired background color */
+    color: #ffffff;
+    /* Set your desired text color */
+}

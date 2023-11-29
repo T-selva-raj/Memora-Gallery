@@ -21,13 +21,17 @@ import { MatDividerModule } from '@angular/material/divider';
 import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
+import { MatTabsModule } from '@angular/material/tabs';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     MainComponent,
     CardPageComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditProfileComponent
 
   ],
   imports: [
@@ -48,7 +52,9 @@ import { MatListModule } from '@angular/material/list';
     MatDividerModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatListModule
+    MatListModule,
+    MatTabsModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

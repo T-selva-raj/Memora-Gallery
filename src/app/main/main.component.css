@@ -4,6 +4,10 @@
 }
 
 /* svg animation */
+
+.color{
+  fill: var(--primary-color);
+}
 svg#freepik_stories-online-gallery:not(.animated) .animable {
   opacity: 0;
 }

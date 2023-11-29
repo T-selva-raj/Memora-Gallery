@@ -6,6 +6,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { CardPageComponent } from './card-page/card-page.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RouteGuardGuard } from './route-guard.guard';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const routes: Routes = [
   { path: "", component: MainComponent },
@@ -18,6 +19,10 @@ const routes: Routes = [
   },
   {
     path: "profile", component: ProfileComponent,
+    canActivate: [RouteGuardGuard]
+  },
+  {
+    path: 'edit-profile', component: EditProfileComponent,
     canActivate:[RouteGuardGuard]
   }
 ];

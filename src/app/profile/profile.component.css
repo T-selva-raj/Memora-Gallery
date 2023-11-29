@@ -1,87 +1,36 @@
-svg#freepik_stories-account:not(.animated) .animable {
-    opacity: 0;
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Dancing+Script&display=swap');
+
+.header-container {
+    padding: 15px;
 }
-
-svg#freepik_stories-account.animated #freepik--background-complete--inject-62 {
-    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideLeft;
-    animation-delay: 0s;
+.background-image{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover ;
+    border-radius: 10px;
 }
+.bio-container h3 {
+    color: var(--primary-color);
+    font-family: 'Dancing+Script';
 
-svg#freepik_stories-account.animated #freepik--Shadow--inject-62 {
-    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) fadeIn;
-    animation-delay: 0s;
 }
-
-svg#freepik_stories-account.animated #freepik--character-female--inject-62 {
-    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
-    animation-delay: 0s;
+.bio-container h5 {
+    font-family: 'Caveat';
+    font-size: large;
+    font-weight: bold;
 }
-
-svg#freepik_stories-account.animated #freepik--Account--inject-62 {
-    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) zoomOut;
-    animation-delay: 0s;
+.bio-details p {
+    color: black !important;
+    letter-spacing: 2px !important;
+    font-family: 'Dancing+Script';
 }
-
-svg#freepik_stories-account.animated #freepik--character-male--inject-62 {
-    animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideUp;
-    animation-delay: 0s;
+.image-container{
+    width:30%;
+    height:150px;
+    margin-top: 10px;
 }
-
-@keyframes slideLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes slideRight {
-    0% {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes zoomOut {
-    0% {
-        opacity: 0;
-        transform: scale(1.5);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes slideUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: inherit;
-    }
+h3{
+    font-size: x-large;
+    color: var(--primary-color) !important;
 }
 

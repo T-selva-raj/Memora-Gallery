@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 *{
   --main-color:white;
+  --primary-color:#3f51b5;
 }
 *{
     margin: 0;
@@ -20,7 +21,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .heading-1{
   font-size:3rem !important;
-  color:#3f51b5;
+  color:var(--primary-color);
 }
 .heading-2{
   font-size: 1.5rem !important;
