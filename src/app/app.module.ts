@@ -24,6 +24,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MainComponent,
     CardPageComponent,
     ProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    ForgotPasswordComponent
 
   ],
   imports: [
