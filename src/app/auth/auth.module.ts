@@ -14,6 +14,7 @@ import { AuthServiceService } from './auth-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModuleModule } from '../common-module/common-module.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CommonModuleModule } from '../common-module/common-module.module';
     MatToolbarModule,
     MatIconModule,
     HttpClientModule,
+    RouterModule,
     CommonModuleModule
   ],
   exports: [

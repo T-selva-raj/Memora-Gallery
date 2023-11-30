@@ -11,7 +11,7 @@
 
 .spinner::before,
 .spinner::after {
-    border: 8.6px solid #3f51b5;
+    border: 8.6px solid var(--primary-color);
     border-radius: 50%;
     position: absolute;
     content: '';

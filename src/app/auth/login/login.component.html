@@ -1,4 +1,7 @@
 <app-loader *ngIf="isLoader"></app-loader>
+<ng-container >
+  <router-outlet></router-outlet>
+</ng-container>
 <div fxFill fxLayoutAlign="center center" >
   <div  fxFlex="30" fxFlex.lt-md="80" >
     <div class="login-container">
@@ -37,7 +40,7 @@
           </div>
           <div fxFill="80" fxLayout="column wrap" fxLayoutGap="0" fxLayoutAlign="start start">
             <h5>Not a User ?<a mat-button color="primary" (click)="navigate('/register')"> sign Up</a>here</h5>
-            <h5><a mat-button color="primary">Forgot password?</a></h5>
+            <a mat-button color="primary" routerLink="/login/reset">Forgot password?</a>
           </div>
         </form>
       </mat-card>

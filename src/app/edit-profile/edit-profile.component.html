@@ -1,0 +1,122 @@
+<div style="width: 100%;height: 100%;overflow-y: scroll;">
+    <app-navbar></app-navbar>
+    <mat-card [ngStyle.gt-md]="{'max-height':'100vh','margin-top':'50px'}" class="mat-elevation-z4">
+        <mat-card-content  >
+            <div  style="width:90%;height:95%;border:1px solid gray;"  fxLayoutGap="10px"  fxFlex="100%">
+                <form fxFlex="100%" fxLayout="row" fxLayout.lt-md="column" >
+                    <div  fxFlex="35%" fxFlex.lt-md="50%" >
+                        <div style="height: 100%;padding: 20px; " fxLayout="column" >
+                            <mat-toolbar fxLayout="row" fxLayoutAlign="center center" color="primary">
+                                <span>Profile Photo</span>
+                            </mat-toolbar>
+                            <div fxFlex="70%" fxLayout="column" fxLayoutAlign="center center" >
+                                <div fxLayout="row" fxLayoutAlign="center center"  [ngStyle.gt-md]="{'width': '250px', 'height': '250px'}" [ngStyle.lt-md]="{'width': '150px', 'height': '150px'}">
+                                    <img [src]="profileImg" alt=""
+                                        style="width: 80%;height: 80%; object-fit: cover; border-radius: 50%; padding: 5px;border: 2px solid var(--primary-color);box-shadow: 0px 0px 5px black;">
+                                </div>
+                            </div>
+                            <div fxFlex="20%" fxLayout="column" fxLayoutAlign="center center">
+                                <input type="file" name="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" required
+                                    style="display: none;">
+                                <label for="fileInput"
+                                    class="button-style ">Choose
+                                    Image</label>
+                                    <br>
+                                <button type="submit" class="button-style ">Upload</button>
+                            </div>
+                        </div>
+                    </div>
+                    <mat-divider [vertical]="true" fxHide.lt-md></mat-divider>
+                    <div  fxFlex="65%" style="padding: 20px;" fxLayout="column" >
+                        <!-- <mat-toolbar fxLayout="row" fxLayoutAlign="center center" color="primary" fxHide.gt-sm>
+                            <span>Profile Details</span>
+                        </mat-toolbar> -->
+                        <mat-divider fxHide.gt-sm></mat-divider>
+                        <br fxHide.gt-sm>
+                        <mat-tab-group fxFlex="95%" dynamicHeight>
+                            <mat-tab label="Personal Details">
+                                <div fxLayout="column" fxLayoutAlign="center" fxFlex="100%" fxLayoutGap="10px">
+                                    <br>
+                                    <div fxLayout="row" fxLayoutGap="10px"  fxLayout.lt-md="column">
+                                        <mat-form-field fxFlex="50%" >
+                                            <mat-label>User Name</mat-label>
+                                            <input type="text" matInput/>
+                                        </mat-form-field>
+                                        <mat-form-field fxFlex="50%">
+                                            <mat-label>Quote</mat-label>
+                                            <input type="text" matInput />
+                                        </mat-form-field>
+                                    </div>
+                                    <div fxLayout="row"   fxLayout.lt-md="column">
+                                        <mat-form-field fxFlex="100%" appearance="outline">
+                                            <mat-label>Bio</mat-label>
+                                            <textarea  matInput rows="5" placeholder="Add 5 sentences" maxlength="150"></textarea>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="Social Links">
+                                <div fxLayout="column" fxLayoutAlign="center" fxFlex="100%" fxLayoutGap="10px">
+                                    <br>
+                                    <div fxLayout="row" fxLayoutGap="10px"  fxLayout.lt-md="column">
+                                        <mat-form-field fxFlex="50%">
+                                            <mat-label>WhatsApp Number</mat-label>
+                                            <input type="text" matInput />
+                                        </mat-form-field>
+                                        <mat-form-field fxFlex="50%">
+                                            <mat-label>FaceBook Url</mat-label>
+                                            <input type="url" matInput />
+                                        </mat-form-field>
+                                    </div>
+                                    <div fxLayout="row"  fxLayoutGap="10px"  fxLayout.lt-md="column">
+                                        <mat-form-field fxFlex="50%">
+                                            <mat-label>Instagram ID</mat-label>
+                                            <input type="text" matInput />
+                                        </mat-form-field>
+                                        <mat-form-field fxFlex="50%" >
+                                            <mat-label>Snapchat Url</mat-label>
+                                            <input type="text" matInput />
+                                        </mat-form-field>
+                                    </div>
+                                    <div fxLayout="row" fxLayoutGap="10px" >
+                                        <mat-form-field fxFlex="50%"  fxFlex.lt-md="100%">
+                                            <mat-label>Telegram Url</mat-label>
+                                            <input type="text" matInput />
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="Security">
+                                <div fxLayout="column" fxLayoutAlign="center" fxFlex="100%" fxLayoutGap="10px" >
+                                    <br>
+                                    <div fxLayout="row" fxLayoutGap="10px" fxLayout.lt-md="column">
+                                        <mat-form-field fxFlex="50%" appearance="outline">
+                                            <mat-label>Old Password</mat-label>
+                                            <input type="password" matInput />
+                                        </mat-form-field>
+                                    </div>
+                                    <div fxLayout="row" fxLayoutGap="10px" fxLayout.lt-md="column">
+                                        <mat-form-field fxFlex="50%" appearance="outline">
+                                            <mat-label>New Password</mat-label>
+                                            <input type="password" matInput />
+                                        </mat-form-field>
+                                        <mat-form-field fxFlex="50%" appearance="outline">
+                                            <mat-label>Repeat Password</mat-label>
+                                            <input type="password" matInput />
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </mat-tab>
+                        </mat-tab-group>
+                        <div fxFlex="5%" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+                            <a mat-raised-button color="primary" routerLink="/profile">Back</a>
+                            <button mat-raised-button color="accent">Save</button>
+                            <br>
+                        </div>
+                    </div>                  
+                </form>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+
